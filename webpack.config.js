@@ -18,6 +18,14 @@ module.exports = {
           "css-loader", // 将css资源打包成commonjs的模块到js中
         ],
       },
+      {
+        test: /\.less$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'less-loader', // 将less资源打包成css资源
+        ],
+      },
     ],
   },
   plugins: [],
