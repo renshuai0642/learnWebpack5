@@ -4,8 +4,11 @@ module.exports = {
   mode: 'development',
   entry: './src/main.js',
   output: {
-	path: path.resolve(__dirname, 'dist'),
-	filename: 'main.js',
+    // 所有文件的输出路径
+    // __dirname nodejs的变量，代表当前文件的文件夹目录。
+    path: path.resolve(__dirname, 'dist'),
+    // 入口文件打包输出文件名
+    filename: 'js/main.js',
   },
   // 加载器
   module: {
@@ -35,6 +38,13 @@ module.exports = {
             // 优点：减少请求数量  缺点：文件体积变大
             maxSize: 10 * 1024,
           }
+        },
+        generator: {
+          // 图片资源输出文件名
+          // hash取前10位，文件名短一些
+          // ext 文件类型
+          // url ?后带的参数
+          filename: 'static/images/[hash:10][ext][query]'
         },
       },
     ],
