@@ -8,6 +8,17 @@ module.exports = {
 	filename: 'main.js',
   },
   // 加载器
-  module: {},
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          // 执行顺序从右到左，从下到上
+          "style-loader", // 将js中css通过创建style标签添加到html文件中
+          "css-loader", // 将css资源打包成commonjs的模块到js中
+        ],
+      },
+    ],
+  },
   plugins: [],
 };
