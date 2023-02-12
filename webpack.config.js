@@ -26,6 +26,17 @@ module.exports = {
           'less-loader', // 将less资源打包成css资源
         ],
       },
+      {
+        test: /\.(png|jpe?g|gif|webp|svg|gif)$/, // 解析
+        type: "asset",
+        parser: {
+          dataUrlCondition: {
+            // 小于10kb转base64
+            // 优点：减少请求数量  缺点：文件体积变大
+            maxSize: 10 * 1024,
+          }
+        },
+      },
     ],
   },
   plugins: [],
